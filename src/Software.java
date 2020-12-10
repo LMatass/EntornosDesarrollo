@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 public class Software {
     //Declaracion variables
     private String softwareName;
@@ -45,4 +47,5 @@ public class Software {
     public void setSoftwareRamMemmoryRequiriment(int softwareRamMemmoryRequiriment) {
         this.softwareRamMemmoryRequiriment = softwareRamMemmoryRequiriment;
     }
+
 }

@@ -1,8 +1,8 @@
 public class Computer {
     //Declaracion de variables
     private String name;
-    private int ramMemory;
-    private int hardDisk;
+    private double ramMemory;
+    private double hardDisk;
     private  OperatingSystem operatingSystem;
 
     //Constructor
@@ -26,11 +26,11 @@ public class Computer {
     }
 
     //Getters y setters
-    public int getHardDisk() {
+    public double getHardDisk() {
         return this.hardDisk;
     }
 
-    public int getRamMemory() {
+    public double getRamMemory() {
         return this.ramMemory;
     }
 
@@ -38,11 +38,11 @@ public class Computer {
         return this.name;
     }
 
-    public void setHardDisk(int hardDisk) {
+    public void setHardDisk(double hardDisk) {
         this.hardDisk = hardDisk;
     }
 
-    public void setRamMemory(int ramMemory) {
+    public void setRamMemory(double ramMemory) {
         this.ramMemory = ramMemory;
     }
 
@@ -57,5 +57,9 @@ public class Computer {
     public void setOperatingSystem(OperatingSystem operatingSystem) {
         this.operatingSystem = operatingSystem;
     }
-
+    public void formateo(){
+        this.hardDisk = hardDisk + operatingSystem.getOsSpaceRequirement();
+        this.operatingSystem = operatingSystem;
+        this.ramMemory = ramMemory + operatingSystem.getOsRamMemmoryRequiriment();
+    }
 }
