@@ -12,45 +12,35 @@ public class Test {
         Software s2 = new Software("s2", "10", 0.2 , 0.6);
         //Instalacion sistema operativo
         c1.installOperatingSystem(os1);
+        //Instalacion del programa 1
+        c1.getOperatingSystem().Install(c1, s1);
+        //Instalacion del programa 2
+        c1.getOperatingSystem().Install(c1, s2);
 
-        //Instalacion software 1
-        install(c1, s1);
-
-        //Instalacion software 2
-        install(c1, s2);
-
-        //Muestra por pantalla todo el software instalado
+        //Muestra software instalado
         System.out.println("El software instalado es: ");
         for (int i = 0; i < os1.getosSoftware().size();i++){
             System.out.println(os1.getosSoftware().get(i).getSoftwareName());
         }
+        //Muestra espacio disponible
+        System.out.println(c1.getHardDisk());
 
         //Desinstalar programa 1
-        unistall(c1, s1);
+        c1.getOperatingSystem().Unistall(c1, s1);
 
         //Desinstalar programa 2
-        unistall(c1, s2);
+        c1.getOperatingSystem().Unistall(c1,s2);
+        System.out.println("El software instalado es: ");
+
+        //Muestra software instalado
+        for (int i = 0; i < os1.getosSoftware().size();i++){
+            System.out.println(os1.getosSoftware().get(i).getSoftwareName());
+        }
 
         //FOrmateo del ordenador 1
         c1.formateo();
-        System.out.println(c1.getHardDisk());
 
+        //Ver espacio libre
+        System.out.println(c1.getHardDisk());
     }
-        //Metodo installar
-        private static void install(Computer computer, Software software) {
-            if (computer.getHardDisk()>software.getSoftwareSpaceRequiriment()&&computer.getRamMemory()>software.getSoftwareRamMemmoryRequiriment()){
-                computer.getOperatingSystem().SoftwareInstallation(software);
-                computer.setHardDisk(computer.getHardDisk()-software.getSoftwareSpaceRequiriment());
-                computer.setRamMemory(computer.getRamMemory()-software.getSoftwareRamMemmoryRequiriment());
-        }
-            else{
-                System.out.println("Error no hay espacio o memoria RAM suficiente, programa no instalado");
-        }
-    }
-        //Metodo desinstalar
-        private static void unistall(Computer computer, Software software){
-            computer.getOperatingSystem().SoftwareUninstallation(software);
-            computer.setHardDisk(computer.getHardDisk() + software.getSoftwareSpaceRequiriment());
-            computer.setRamMemory(computer.getRamMemory() + software.getSoftwareSpaceRequiriment());
-        }
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 public class OperatingSystem {
+    public static java.lang.System System;
     //Declaracion variables
     private String osName;
     private String osVersion;
@@ -74,11 +75,27 @@ public class OperatingSystem {
     public ArrayList<Software> getosSoftware(){
         return osSoftware;
     }
+
     public void SoftwareInstallation (Software osSoftware){
         this.osSoftware.add(osSoftware);
     }
     public void SoftwareUninstallation (Software osSoftware){
         this.osSoftware.remove(osSoftware);
     }
+    public void Install(Computer computer, Software software) {
+        if (computer.getHardDisk()>software.getSoftwareSpaceRequiriment()&&computer.getRamMemory()>software.getSoftwareRamMemmoryRequiriment()){
+            computer.getOperatingSystem().SoftwareInstallation(software);
+            computer.setHardDisk(computer.getHardDisk()-software.getSoftwareSpaceRequiriment());
+            computer.setRamMemory(computer.getRamMemory()-software.getSoftwareRamMemmoryRequiriment());
+        }
+        else{
+            System.out.println("Error no hay espacio o memoria RAM suficiente, programa no instalado");
+        }
+    }
 
+    public void Unistall(Computer computer, Software software){
+        computer.getOperatingSystem().SoftwareUninstallation(software);
+        computer.setHardDisk(computer.getHardDisk() + software.getSoftwareSpaceRequiriment());
+        computer.setRamMemory(computer.getRamMemory() + software.getSoftwareSpaceRequiriment());
+    }
 }

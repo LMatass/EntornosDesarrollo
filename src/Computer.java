@@ -13,16 +13,15 @@ public class Computer {
         this.operatingSystem = null;
     }
 
-    //metodos
+    //metodo instalar sistema operativo
     public void installOperatingSystem(OperatingSystem s){
         if (this.hardDisk > s.getOsSpaceRequirement() && this.ramMemory > s.getOsRamMemmoryRequiriment()){
             this.setOperatingSystem(s);
             this.setHardDisk(this.hardDisk - s.getOsSpaceRequirement());
             this.setRamMemory(this.ramMemory - s.getOsRamMemmoryRequiriment());
         } else {
-            System.out.println("No hay espacio");
+            System.out.println("No hay espacio suficiente para instalar el sistema operativo");
         }
-
     }
 
     //Getters y setters
@@ -57,6 +56,7 @@ public class Computer {
     public void setOperatingSystem(OperatingSystem operatingSystem) {
         this.operatingSystem = operatingSystem;
     }
+
     public void formateo(){
         this.hardDisk = hardDisk + operatingSystem.getOsSpaceRequirement();
         this.operatingSystem = operatingSystem;
