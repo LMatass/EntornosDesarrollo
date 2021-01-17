@@ -99,7 +99,7 @@ public class AdivinaElNumeroV3 {
             System.out.println(" ");
             System.out.println("1. Jugar a adivina el numero");
             System.out.println("2. Ver ganancias de la maquina");
-            System.out.println("3. Cerrar el programa 3");
+            System.out.println("3. Cerrar el programa");
 
             System.out.println("Escribe una de las opciones");
             opcion = sc.nextInt();
@@ -110,8 +110,8 @@ public class AdivinaElNumeroV3 {
                     juego();
                 }
                 case 2 -> {
-                    System.out.println("Las ganancias de la maquina ascenden a:");
-                    System.out.println(saldoMaquina - 1000);
+                    System.out.println("Las ganancias de la maquina son de ");
+                    System.out.println(saldoMaquina - 1000 + " puntos");
                 }
                 case 3 -> salir = true;
                 default -> System.out.println("Solo números entre 1 y 4");
