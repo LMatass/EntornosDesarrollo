@@ -119,9 +119,6 @@ public class AdivinaElNumeroV3 {
 
         }
     }
-    public static void main(String[] args) {
-        AdivinaElNumeroV3 adivinaElNumeroV3 = new AdivinaElNumeroV3();
-        adivinaElNumeroV3.menu();
-    }
+
 }
 
