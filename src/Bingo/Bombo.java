@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Bombo {
     ArrayList<Integer> jugador1;
     ArrayList<Integer> jugador2;
-
+    ArrayList<Integer> intentosMaquina = new ArrayList<>();
     boolean salir = false;
     int random;
 
@@ -44,19 +44,23 @@ public class Bombo {
     public void jugar() {
         while (!salir) {
             random = (int) (Math.random() * 99);
-            if (jugador1.size() == 0 || jugador2.size() == 0) { //Comprueba si el tamaño de alguna de las arrays es 0 y por lo tanto si existe algun ganador.
-                if (jugador1.size() == 0) {
-                    System.out.println("Ha ganado el jugador 1" );
+            if (!intentosMaquina.contains(random)) {//Comprueba que el numero generado no esta dentro de la array
+                intentosMaquina.add(random);
+                if (jugador1.size() == 0 || jugador2.size() == 0) { //Comprueba si el tamaño de alguna de las arrays es 0 y por lo tanto si existe algun ganador.
+                    if (jugador1.size() == 0 && jugador2.size() == 0) {
+                        System.out.println("Empate");
+                    } else if (jugador1.size() == 0){
+                        System.out.println("Ha ganado el jugador 1");
+                    } else {
+                        System.out.println("Ha ganado el jugador 2");
+                    }
+                    salir = true;
                 } else {
-                    System.out.println("Ha ganado el jugador 2");
+                    comprueba(jugador1);
+                    comprueba(jugador2);
                 }
-                salir = true;
-            } else {
-                comprueba(jugador1);
-                comprueba(jugador2);
             }
         }
     }
-
 }
 
