@@ -46,7 +46,9 @@ public class Bombo {
             random = (int) (Math.random() * 99);
             if (!intentosMaquina.contains(random)) {//Comprueba que el numero generado no esta dentro de la array
                 intentosMaquina.add(random);
+
                 if (jugador1.size() == 0 || jugador2.size() == 0) { //Comprueba si el tamaño de alguna de las arrays es 0 y por lo tanto si existe algun ganador.
+                    //Si ambos tamaños de las arrays son 0, se considera empate
                     if (jugador1.size() == 0 && jugador2.size() == 0) {
                         System.out.println("Empate");
                     } else if (jugador1.size() == 0){
@@ -55,6 +57,7 @@ public class Bombo {
                         System.out.println("Ha ganado el jugador 2");
                     }
                     salir = true;
+
                 } else {
                     comprueba(jugador1);
                     comprueba(jugador2);
