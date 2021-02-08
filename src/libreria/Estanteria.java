@@ -33,14 +33,14 @@ public class Estanteria {
     libreria y si se da el caso de que alguno de los parametros introducidos (autor o titulo) concuerda con el titulo o
     autor del libro este se eliminara de la estanteria.
      */
-    public void eliminarLlibre(String autor, String titol) throws Exception {
+    public void eliminarLlibre(String autor, String titol) {
         System.out.println("************************************************************");
         for (int i = 0; i < estanteria.size(); i++) {
             llibre = estanteria.get(i);
             if (autor.equals(llibre.getAutor()) || titol.equals(llibre.titol)){
                 System.out.println("Eliminat el llibre: "+ llibre.getTitol());
                 estanteria.remove(i);
-            } else throw new Exception("El llibre no existeix");
+            }
         }
     }
     /*
