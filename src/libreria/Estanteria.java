@@ -85,7 +85,6 @@ public class Estanteria {
         return flag;
     }
     public Llibre creacion(){
-        Llibre llibre = new Llibre("","",0);
-        return llibre;
+        return new Llibre("Espai lliure","Espai lliure",0);
     }
 }
