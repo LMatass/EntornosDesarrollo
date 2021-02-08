@@ -38,7 +38,7 @@ public class Estanteria {
             llibre = estanteria.get(i);
             if (autor.equals(llibre.getAutor()) || titol.equals(llibre.titol)){
                 System.out.println("Eliminat el llibre: "+ llibre.getTitol());
-                estanteria.set(i, null);
+                estanteria.set(i,creacion()); //Llama a un metodo que crea un libro totalmente vacio
             }
         }
     }
@@ -77,10 +77,15 @@ public class Estanteria {
     public boolean comprueba (Llibre llibre){
         boolean flag = false;
         for (int i = 0; i < estanteria.size(); i++) {
-            if (estanteria.contains(llibre)){
+            if (estanteria.contains(llibre)) {
                 flag = true;
+                break;
             }
         }
         return flag;
+    }
+    public Llibre creacion(){
+        Llibre llibre = new Llibre("","",0);
+        return llibre;
     }
 }
