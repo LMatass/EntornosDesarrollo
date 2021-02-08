@@ -1,7 +1,6 @@
 package libreria;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -24,7 +23,7 @@ public class Estanteria {
     en el caso de que haya sitio se añade el libro a a la estanteria, si no hay sitio saltar una excepcion parando el programa.
      */
     public void afegirLlibre(Llibre llibre) throws Exception {
-        if (estanteria.size() < 10) {
+        if (estanteria.size() < 10 && !comprueba(llibre)) {
             estanteria.add(llibre);
         } else throw new Exception("No se ha podido añadir el libro, estanteria llena");
     }
@@ -39,7 +38,7 @@ public class Estanteria {
             llibre = estanteria.get(i);
             if (autor.equals(llibre.getAutor()) || titol.equals(llibre.titol)){
                 System.out.println("Eliminat el llibre: "+ llibre.getTitol());
-                estanteria.remove(i);
+                estanteria.set(i, null);
             }
         }
     }
@@ -74,5 +73,14 @@ public class Estanteria {
                     ", Posicio: " + i);
         }
         System.out.println("************************************************************");
+    }
+    public boolean comprueba (Llibre llibre){
+        boolean flag = false;
+        for (int i = 0; i < estanteria.size(); i++) {
+            if (estanteria.contains(llibre)){
+                flag = true;
+            }
+        }
+        return flag;
     }
 }

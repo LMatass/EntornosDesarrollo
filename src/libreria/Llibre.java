@@ -23,24 +23,13 @@ public class Llibre {
         return titol;
     }
 
-    public void setTitol(String titol) {
-        this.titol = titol;
-    }
-
     public String getAutor() {
         return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
     }
 
     public int getQualificacio() {
         return qualificacio;
     }
 
-    public void setQualificacio(int qualificacio) {
-        this.qualificacio = qualificacio;
-    }
 
 }
